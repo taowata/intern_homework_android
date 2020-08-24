@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/searchFragment">
 
     <fragment
@@ -10,5 +12,18 @@
     <fragment
         android:id="@+id/question1SearchFragment"
         android:name="com.example.intern_anrdoid_2020.view.Question1SearchFragment"
-        android:label="Question1SearchFragment" />
+        android:label="Question1SearchFragment" >
+        <action
+            android:id="@+id/action_question1SearchFragment_to_question1QiitaListFragment"
+            app:destination="@id/question1QiitaListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/question1QiitaListFragment"
+        android:name="com.example.intern_anrdoid_2020.view.Question1QiitaListFragment"
+        android:label="Question1QiitaListFragment" >
+        <argument
+            android:name="article_list"
+            app:argType="com.example.intern_anrdoid_2020.ArticleList" />
+    </fragment>
+
 </navigation>
