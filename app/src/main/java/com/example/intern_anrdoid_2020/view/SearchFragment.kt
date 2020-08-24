@@ -44,7 +44,7 @@ class SearchFragment : Fragment() {
     private fun showQiitaListFragment(qiitaArticleResponse: ArrayList<QiitaArticleResponse>) {
         fragmentManager?.let {
             val fragmentTransaction = it.beginTransaction()
-            fragmentTransaction.replace(R.id.search_layout_frame, QiitaListFragment.newInstance(qiitaArticleResponse))
+            fragmentTransaction.replace(R.id.nav_fragment, QiitaListFragment.newInstance(qiitaArticleResponse))
                     .addToBackStack(null)
                     .commit()
         }
