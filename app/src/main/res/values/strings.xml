@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Intern_Anrdoid_2020</string>
+    <string name="login_view">ログイン画面</string>
+    <string name="search_view">検索画面</string>
+    <string name="article_view">記事一覧</string>
+    <string name="login_button">ログイン</string>
+    <string name="search">検索</string>
+    <string name="search_comment">キーワードを入力してください</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="qitta_lgtm">LGTM:</string>
+    <string name="qiita_title">title</string>
+    <string name="sample">サンプル</string>
+    <string name="question1">課題１</string>
+</resources>
