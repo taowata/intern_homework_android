@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -54,9 +55,10 @@ class Question1QiitaListFragment : Fragment() {
 
             adapter.setOnItemClickListener(object: QiitaListViewAdapter.OnItemClickListener{
                 override fun onItemClickListener(item: QiitaArticleResponse) {
-                    val builder = CustomTabsIntent.Builder()
-                    val customTabsIntent = builder.build()
-                    customTabsIntent.launchUrl(view.context, Uri.parse(item.url))
+                    val action = item.url?.let { Question1QiitaListFragmentDirections.actionQuestion1QiitaListFragmentToQuestion1WebViewFragment(it) }
+                    if (action != null) {
+                        findNavController().navigate(action)
+                    }
                 }
             })
         }

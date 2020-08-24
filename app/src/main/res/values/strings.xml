@@ -4,6 +4,7 @@
     <string name="search_view">検索画面</string>
     <string name="search_view_q1">検索画面Q1</string>
     <string name="article_view">記事一覧</string>
+    <string name="article_detail">記事詳細</string>
     <string name="login_button">ログイン</string>
     <string name="search">検索</string>
     <string name="search_comment">キーワードを入力してください</string>

@@ -24,6 +24,20 @@
         <argument
             android:name="article_list"
             app:argType="com.example.intern_anrdoid_2020.ArticleList" />
+        <action
+            android:id="@+id/action_question1QiitaListFragment_to_question1WebViewFragment"
+            app:destination="@id/question1WebViewFragment" />
+
     </fragment>
+    <fragment
+        android:id="@+id/question1WebViewFragment"
+        android:name="com.example.intern_anrdoid_2020.view.Question1WebViewFragment"
+        android:label="fragment_question1_web_view"
+        tools:layout="@layout/fragment_question1_web_view" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>
