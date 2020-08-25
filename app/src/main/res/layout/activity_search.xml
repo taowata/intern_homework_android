@@ -26,7 +26,8 @@
         android:layout_marginBottom="0dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:itemTextColor="@color/colorWhite"
+        app:itemIconTint="@color/bottom_navigation_selector"
+        app:itemTextColor="@color/bottom_navigation_selector"
         app:menu="@menu/bottom_navigation_items" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
