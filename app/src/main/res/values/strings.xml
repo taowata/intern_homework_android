@@ -14,4 +14,13 @@
     <string name="qiita_title">title</string>
     <string name="sample">サンプル</string>
     <string name="question1">課題１</string>
+    <string name="search_article_number">一度に表示する記事数</string>
+    <string-array name="spn_items">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
 </resources>

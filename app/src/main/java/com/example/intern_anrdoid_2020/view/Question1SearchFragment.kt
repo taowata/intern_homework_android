@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -39,7 +40,9 @@ class Question1SearchFragment : Fragment() {
                     val errorTextView = v.findViewById<TextView>(R.id.error_tv)
                     errorTextView.visibility = View.VISIBLE
                 } else {
-                    QiitaListRepository.listArticle(PAGE, PER_PAGE, searchKey).observe(viewLifecycleOwner, Observer { qiitaListResponse: ArrayList<QiitaArticleResponse> ->
+                    val spn = v.findViewById<Spinner>(R.id.spnArticleNumber)
+                    val articleNumber = spn.selectedItem.toString().toInt()
+                    QiitaListRepository.listArticle(PAGE, articleNumber, searchKey).observe(viewLifecycleOwner, Observer { qiitaListResponse: ArrayList<QiitaArticleResponse> ->
                         val articleList = ArticleList(qiitaListResponse)
                         val action = Question1SearchFragmentDirections.actionQuestion1SearchFragmentToQuestion1QiitaListFragment(articleList)
                         findNavController().navigate(action)

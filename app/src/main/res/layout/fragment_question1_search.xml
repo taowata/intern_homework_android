@@ -12,12 +12,12 @@
         android:id="@+id/edit_search_q1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:hint="@string/search_comment"
-        android:inputType="text"/>
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/error_tv"
@@ -40,5 +40,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/error_tv"
         tools:layout_editor_absoluteY="388dp" />
+
+    <Spinner
+        android:id="@+id/spnArticleNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:entries="@array/spn_items"
+        app:layout_constraintBottom_toTopOf="@+id/edit_search_q1"
+        app:layout_constraintEnd_toEndOf="@+id/edit_search_q1"
+        app:layout_constraintStart_toStartOf="@+id/edit_search_q1" />
+
+    <TextView
+        android:id="@+id/search_article_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_article_number"
+        app:layout_constraintBottom_toTopOf="@+id/spnArticleNumber"
+        app:layout_constraintEnd_toEndOf="@+id/spnArticleNumber"
+        app:layout_constraintStart_toStartOf="@+id/spnArticleNumber" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
