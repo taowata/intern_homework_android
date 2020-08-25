@@ -28,11 +28,13 @@ class QiitaListViewAdapter(private val listData: List<QiitaArticleResponse>?) : 
         val ivQiitaImage: ImageView
         val tvQiitaTitle: TextView
         val tvQiitaLgtm: TextView
+        val tvQiitaUser: TextView
 
         init {
             ivQiitaImage = itemView.iv_user_image
             tvQiitaTitle = itemView.tv_qiita_title
             tvQiitaLgtm = itemView.tv_qiita_lgtm_counter
+            tvQiitaUser = itemView.tv_qiita_user
         }
     }
 
@@ -46,6 +48,7 @@ class QiitaListViewAdapter(private val listData: List<QiitaArticleResponse>?) : 
             val qiitaArticleResponse = listData[position]
             holder.tvQiitaTitle.text = qiitaArticleResponse.title
             holder.tvQiitaLgtm.text = qiitaArticleResponse.likesCount.toString()
+            holder.tvQiitaUser.text = qiitaArticleResponse.user?.id
             Glide.with(holder.ivQiitaImage.context).load(qiitaArticleResponse.user?.profileImageUrl).into(holder.ivQiitaImage)
             holder.itemView.setOnClickListener {
                 if (position == RecyclerView.NO_POSITION) {
