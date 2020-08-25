@@ -3,6 +3,8 @@ package com.example.intern_anrdoid_2020.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
@@ -22,5 +24,14 @@ class SearchActivity : AppCompatActivity() {
         fun createIntent(context: Context?): Intent {
             return Intent(context, SearchActivity::class.java)
         }
+    }
+
+    // EditText外をタップした時にキーボードを閉じる
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }
