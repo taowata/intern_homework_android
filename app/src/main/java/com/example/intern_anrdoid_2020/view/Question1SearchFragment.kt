@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -33,12 +34,17 @@ class Question1SearchFragment : Fragment() {
         val searchButton : Button = v.search_button_q1
         searchButton.setOnClickListener {
             view?.let {
-                val searchKey  = it.edit_search_q1.text.toString()
-                QiitaListRepository.listArticle(PAGE, PER_PAGE, searchKey).observe(viewLifecycleOwner, Observer { qiitaListResponse: ArrayList<QiitaArticleResponse> ->
-                    val articleList = ArticleList(qiitaListResponse)
-                    val action = Question1SearchFragmentDirections.actionQuestion1SearchFragmentToQuestion1QiitaListFragment(articleList)
-                    findNavController().navigate(action)
-                })
+                val searchKey  = it.edit_search_q1.text.toString().trim() // 前後のスペースをトリミング
+                if (searchKey.isEmpty()) {
+                    val errorTextView = v.findViewById<TextView>(R.id.error_tv)
+                    errorTextView.visibility = View.VISIBLE
+                } else {
+                    QiitaListRepository.listArticle(PAGE, PER_PAGE, searchKey).observe(viewLifecycleOwner, Observer { qiitaListResponse: ArrayList<QiitaArticleResponse> ->
+                        val articleList = ArticleList(qiitaListResponse)
+                        val action = Question1SearchFragmentDirections.actionQuestion1SearchFragmentToQuestion1QiitaListFragment(articleList)
+                        findNavController().navigate(action)
+                    })
+                }
             }
         }
         return v
